@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./public/faviconn.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+
+    <title>L'Oréal LANCÔME</title>
+
+    <style>
+      @font-face {
+        font-family: "millerRoman";
+        src: url("./fonts/MillerDisplayLancome-Roman.otf") format("opentype");
+        /* Si la fuente es un archivo .otf, usa el siguiente formato en lugar del formato truetype:
+        src: url('ruta/del/archivo/fuente.otf') format('opentype'); */
+      }
+
+      @font-face {
+        font-family: "millerLight";
+        src: url("./fonts/MillerDisplayLancome-Light.otf") format("opentype");
+        /* Si la fuente es un archivo .otf, usa el siguiente formato en lugar del formato truetype:
+        src: url('ruta/del/archivo/fuente.otf') format('opentype'); */
+      }
+
+      @font-face {
+        font-family: "helvetica";
+        src: url("./fonts/helveticaNeuerRoman.otf") format("opentype");
+        /* Si la fuente es un archivo .otf, usa el siguiente formato en lugar del formato truetype:
+        src: url('ruta/del/archivo/fuente.otf') format('opentype'); */
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "helvetica";
+      }
+
+      .main-container {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        flex-direction: column;
+        padding: 35px;
+      }
+
+      .contenedor-formulario {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container-title {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+
+      .title {
+        font-size: 25px;
+        margin-bottom: 16px;
+      }
+
+      .title-medium-commet {
+        font-size: 16px;
+        color: #000000;
+        margin-bottom: 10px;
+      }
+
+      .title-small-comment {
+        font-size: 12px;
+        color: #000000;
+        margin-bottom: 30px;
+        font-weight: lighter;
+      }
+
+      /*FORMULARIO*/
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        max-width: 750px;
+        height: auto;
+      }
+
+      .name-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .name-and-last-name-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      .input-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin-right: 60px;
+        margin-bottom: 16px;
+      }
+
+      .label_switch {
+        top: 10px;
+        left: 10px;
+        font-size: 16px;
+        color: #241f1f;
+      }
+
+      .label_switch {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 16px;
+        color: #241f1f;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .label-font ::placeholder {
+        color: #999;
+        font-style: italic;
+        font-size: 18px;
+        font-weight: lighter;
+      }
+
+      input:focus + label,
+      input:not(:placeholder-shown) + label {
+        top: -20px;
+        left: 10px;
+        font-size: 12px;
+        color: #333;
+      }
+
+      .input_name {
+        border: none;
+        border-bottom: 1px solid #000000;
+        font-size: 14px;
+        width: 220px;
+        margin-bottom: 18px;
+      }
+
+      .input_phone {
+        border: none;
+        border-bottom: 1px solid #000000;
+        font-size: 14px;
+        width: 220px;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #333;
+      }
+
+      input:hover {
+        cursor: pointer;
+      }
+
+      .contenedor-fecha-tipo-telefono {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+
+      .contenedor-fecha-tipo-checkbox {
+        margin-bottom: 40px;
+      }
+
+      /*ESTILOS DE LA FECHA*/
+      .date-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-bottom: 16px;
+      }
+
+      .date-styles {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #000000;
+        font-size: 16px;
+        color: #888;
+        margin-top: 25px;
+        margin-left: 25px;
+        margin-bottom: 16px;
+        padding-right: 10px;
+        cursor: pointer;
+      }
+
+      .skin-styles-text {
+        font-size: 16px;
+        color: #999999;
+      }
+
+      .text-privacidad {
+        color: #000000;
+        font-size: 16px;
+      }
+
+      .skin-styles-option {
+        color: #1b1a1a;
+      }
+
+      /*** ESTILOS BOTÓN SLIDE LEFT ***/
+      .ov-btn-slide-left {
+        background: #ffffff; /* color de fondo */
+        color: #000000; /* color de fuente */
+        border: 2px solid #a1aaa5; /* tamaño y color de borde */
+        padding: 16px 20px;
+        border-radius: 3px; /* redondear bordes */
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        display: inline-block;
+        margin-bottom: 80px;
+      }
+      .ov-btn-slide-left:hover {
+        color: #ffffff; /* color de fuente hover */
+      }
+      .ov-btn-slide-left::after {
+        content: "";
+        background: #000000; /* color de fondo hover */
+        position: absolute;
+        z-index: -1;
+        padding: 16px 20px;
+        display: block;
+        top: 0;
+        bottom: 0;
+        left: -100%;
+        right: 100%;
+        -webkit-transition: all 0.35s;
+        transition: all 0.35s;
+      }
+      .ov-btn-slide-left:hover::after {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        -webkit-transition: all 0.35s;
+        transition: all 0.35s;
+      }
+
+      .phrase-container {
+        margin-left: 27px;
+        width: 0 auto;
+      }
+
+      .phrase-container-pequeno {
+        margin-left: 27px;
+        width: 0 auto;
+        margin-bottom: 40px;
+      }
+
+      .switch-title {
+        font-size: 17px;
+        font-weight: bold;
+        margin-bottom: 16px;
+      }
+
+      .tipo-de-piel-container {
+        margin-bottom: 15px;
+      }
+
+      .label-font-phone ::placeholder {
+        color: #999;
+        font-size: 18px;
+        font-weight: lighter;
+      }
+
+      .banner-container {
+        display: flex; /* Utilizamos flexbox para centrar el contenido */
+        justify-content: center; /* Centra horizontalmente el contenido */
+        align-items: center; /* Centra verticalmente el contenido */
+        margin: 0 auto; /* Añade margen automático para centrar el contenedor */
+        max-width: 1024px;
+      }
+
+      .image-banner {
+        width: 100%; /* Hace                                                                                                                    l div que contiene la imagen tenga un 100% de ancho */
+      }
+
+      .miCheckbox {
+        margin-right: 10px; /* Ajusta este valor según tus necesidades */
+        margin-bottom: 10px;
+      }
+
+      .checkbox-title {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="banner-container mb-4">
+        <img
+          class="image-banner"
+          src="./public/loreal_logo.png"
+          alt="texto_alternativo"
+        />
+      </div>
+
+      <div class="contenedor-formulario">
+        <!--FORMULARIO-->
+        <form action="https://cl.s7.exct.net/DEManager.aspx" method="post">
+          <!--Valores por defecto-->
+          <input type="hidden" name="_clientID" value="[HelpDesk]" />
+          <input type="hidden" name="_deExternalKey" value="[HelpDesk]" />
+          <input type="hidden" name="_action" value="Add" />
+          <input type="hidden" name="_returnXML" value="0" />
+          <input type="hidden" name="_successURL" value="[SUCCESS.html]" />
+          <input type="hidden" name="_errorURL" value="[ERROR.html]" />
+          <input type="hidden" name="Brand" value="[HelpDesk]" />
+          <input type="hidden" name="Channel" value="Landing Page" />
+          <input type="hidden" name="subjectArea" value="Loreal" />
+          <input type="hidden" name="Campaign_name" value="[HelpDesk]" />
+          <input type="hidden" name="Source" value="Automatic" />
+          <input type="hidden" name="country-code" value="[HelpDesk]" />
+          <input type="hidden" name="preferred-locale" value="[HelpDesk]" />
+
+          <!--TITULOS-->
+          <div class="container-title">
+            <p style="font-family: 'millerRoman'" class="title">
+              EXPERIMENTA LA SEDUCCIÓN <br />
+              Y EL ENCANTO ÚNICO DE YSL BEAUTY
+            </p>
+            <p style="font-family: 'millerLight'" class="title-medium-commet">
+              REGÍSTRATE PARA RECIBIR BENEFICIOS EXCLUSIVOS, PROMOCIONES
+              <br />ESPECIALES Y CONTENIDO INSPIRADOR PARA EXPRESAR TU
+              PERSONALIDAD AUDAZ.
+            </p>
+            <p style="font-family: 'helvetica'" class="title-small-comment">
+              Los campos marcados con * son obligatorios
+            </p>
+          </div>
+
+          <div class="form-container">
+            <div class="name-container">
+              <div class="name-and-last-name-container">
+                <!--first-name-->
+                <div class="input-container">
+                  <label for="nombre"></label>
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="first-name"
+                    placeholder="NOMBRE*"
+                    class="label-font fst-italic input_name"
+                    required
+                  />
+                </div>
+
+                <!--last-name-->
+                <div class="input-container">
+                  <label for="apellido"></label>
+                  <input
+                    type="text"
+                    id="apellido"
+                    name="last-name"
+                    placeholder="APELLIDO*"
+                    class="label-font fst-italic input_name"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="name-and-last-name-container">
+                <!--Email-->
+                <div class="input-container">
+                  <label for="email"></label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="CORREO ELECTRÓNICO*"
+                    class="label-font fst-italic input_name"
+                    required
+                  />
+                </div>
+
+                <!--Confirm mail-->
+                <div class="input-container">
+                  <label for="confirmar-email"></label>
+                  <input
+                    type="email"
+                    id="confirmar-email"
+                    name="confirmar-email"
+                    placeholder="CONFIRMAR CORREO*"
+                    class="label-font fst-italic input_name"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="contenedor-fecha-tipo-telefono">
+              <div class="mb-2">
+                <label for="telefono"></label>
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="phone-mobile"
+                  placeholder="TELÉFONO*"
+                  class="fst-italic input_phone"
+                  pattern="[0-9]*"
+                  required
+                />
+              </div>
+
+              <!--FECHA DE NACIMIENTO-->
+              <div class="mt-5 mb-5">
+                <label for="fecha-nacimiento" class="form-label fw-bold"
+                  >FECHA DE NACIMIENTO</label
+                >
+                <input
+                  type="date"
+                  id="fecha-nacimiento"
+                  name="birthday"
+                  value="2023-01-01"
+                  min="1948-12-31"
+                  max="2007-12-31"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div>
+                <div class="tipo-de-piel-container mb-5">
+                  <div class="mb-5">
+                    <label for="genero" class="form-label fw-bold"
+                      >GÉNERO</label
+                    >
+                    <select
+                      name="gender"
+                      class="form-select"
+                      id="genero"
+                      required
+                    >
+                      <option value="" disabled selected>Género*</option>
+                      <option value="Male">Hombre</option>
+                      <option value="Female">Mujer</option>
+                      <option value="Other">Otro</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contenedor-fecha-tipo-checkbox">
+              <p class="checkbox-title">
+                ¿CON QUÉ FIN TE APLICAS UNA FRAGANCIA?
+              </p>
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To boost my self-confidence"
+                    class="miCheckbox"
+                  />Para potenciar mi autoestima</label
+                >
+              </div>
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To express my personality, my uniqueness"
+                    class="miCheckbox"
+                  />Para expresar mi personalidad</label
+                >
+              </div>
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To feel energise"
+                    class="miCheckbox"
+                  />Para sentirme con energías</label
+                >
+              </div>
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To changed my mood"
+                    class="miCheckbox"
+                  />Para cambiar de humor</label
+                >
+              </div>
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To feel good and have a sense of well-being"
+                    class="miCheckbox"
+                  />Para sentirme mejor o tener una sensación de
+                  bienestar</label
+                >
+              </div>
+
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To feel classy, elegant"
+                    class="miCheckbox"
+                  />Para sentirme con clase y elegante</label
+                >
+              </div>
+
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To feel sexy"
+                    class="miCheckbox"
+                  />Para sentirme sexy</label
+                >
+              </div>
+
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To feel fashionable and trendy"
+                    class="miCheckbox"
+                  />Para estar a la moda y trendy</label
+                >
+              </div>
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To come across as serious "
+                    class="miCheckbox"
+                  />Para proyectar seriedad</label
+                >
+              </div>
+
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To be more feminine"
+                    class="miCheckbox"
+                  />Para sentirme más femenina</label
+                >
+              </div>
+
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To be more masculine"
+                    class="miCheckbox"
+                  />Para sentirme más masculino</label
+                >
+              </div>
+
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To make an impression"
+                    class="miCheckbox"
+                  />Para ser recordado</label
+                >
+              </div>
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To pamper myself, it's a pleasant personal moment"
+                    class="miCheckbox"
+                  />Para consentirme, es un momento personal y agradable</label
+                >
+              </div>
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To feel clean"
+                    class="miCheckbox"
+                  />Para sentirme limpio
+                </label>
+              </div>
+              <div class="checkbox">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="FRAGRANCE_PRIORITY"
+                    value="To add a final touch, whenever i get dressed up"
+                    class="miCheckbox"
+                  />Para agregar un toque final, cada vez que me visto</label
+                >
+              </div>
+            </div>
+
+            <div class="mt-2">
+              <p class="switch-title">REQUISITOS</p>
+              <div class="form-check form-switch form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault1"
+                  name="Opt_in"
+                  required
+                />
+                <label
+                  class="form-check-label label_switch"
+                  for="flexSwitchCheckDefault1"
+                ></label>
+                <p>
+                  He leído y acepto las
+                  <a
+                    class="text-privacidad"
+                    href="https://www.loreal.com/en/central-america/pages/group/privacy-policy-panama/"
+                    >políticas de privacidad</a
+                  >
+                  y
+                  <a
+                    class="text-privacidad"
+                    href="https://www.laroche-posay.co/event/terminos-y-condiciones"
+                    >términos y condiciones</a
+                  >
+                </p>
+              </div>
+
+              <div class="form-check form-switch form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault2"
+                  required
+                />
+                <label
+                  class="form-check-label label_switch"
+                  for="flexSwitchCheckDefault2"
+                ></label>
+                <p>
+                  Debes tener 16 años como mínimo para poder enviar tu solicitud
+                </p>
+              </div>
+
+              <p class="container phrase-container">
+                YSL Beauty y otras empresas de confianza usarán tus datos
+                personales para administrar tu consulta o para responder tus
+                preguntas, y para fines analíticos y de investigación de
+                mercado. Para más información sobre el uso que le damos a tus
+                datos personales, consulta nuestra política de privacidad
+              </p>
+
+              <p class="container phrase-container-pequeno">
+                YSL Beauty forma parte de L’Oréal Cosmética Activa
+              </p>
+            </div>
+
+            <button class="ov-btn-slide-left" type="submit">
+              SUSCRÍBETE AL BOLETÍN
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      var telefono = document.getElementById("telefono");
+
+      telefono.addEventListener("input", function (event) {
+        var inputValue = telefono.value;
+        var numericValue = inputValue.replace(/[^0-9]/g, ""); // Eliminar caracteres no numéricos
+
+        if (inputValue !== numericValue) {
+          telefono.value = numericValue; // Actualizar el valor del campo de entrada sin caracteres no numéricos
+          alert("Solo se permiten números en este campo.");
+        }
+      });
+    </script>
+
+    <script>
+      // Seleccionar el input del correo electrónico y el contenedor del mensaje de error
+      const emailInput = document.querySelector("#email");
+      const emailError = document.createElement("span");
+      emailError.classList.add("error-message");
+      emailInput.parentNode.appendChild(emailError);
+
+      // Definir una función para validar el correo electrónico
+      function validarEmail() {
+        const email = emailInput.value.trim();
+        if (!email) {
+          emailInput.classList.add("invalid");
+          emailError.textContent =
+            "El correo electrónico debe tener menos de 35 caracteres y no puede estar vacío";
+          emailError.style.color = "red";
+          emailError.style.fontSize = "14px";
+          emailError.style.maxWidth = "250px";
+          return false;
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+          emailInput.classList.add("invalid");
+          emailError.textContent = "El correo electrónico no es correcto";
+          emailError.style.color = "red";
+          emailError.style.fontSize = "14px";
+          emailError.style.maxWidth = "250px";
+
+          return false;
+        } else {
+          emailInput.classList.remove("invalid");
+          emailError.textContent = "";
+          return true;
+        }
+      }
+
+      // Agregar un evento para validar el correo electrónico cuando el usuario cambie el valor del input
+      emailInput.addEventListener("input", validarEmail);
+
+      // Agregar un evento para validar el correo electrónico cuando el usuario envíe el formulario
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          if (!validarEmail()) {
+            event.preventDefault();
+          }
+        });
+    </script>
+
+    <script>
+      // Seleccionar el input del correo electrónico y el contenedor del mensaje de error
+
+      emailError.classList.add("error-message");
+      emailInput.parentNode.appendChild(emailError);
+
+      // Definir una función para validar el correo electrónico
+      function validarEmail1() {
+        const email = emailInput.value.trim();
+        if (!email) {
+          emailInput.classList.add("invalid");
+          emailError.textContent =
+            "El correo electrónico debe tener menos de 35 caracteres y no puede estar vacío";
+          emailError.style.color = "red";
+          emailError.style.fontSize = "14px";
+          return false;
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+          emailInput.classList.add("invalid");
+          emailError.textContent = "El correo electrónico no es correcto";
+          emailError.style.color = "red";
+          emailError.style.fontSize = "14px";
+          emailError.style.display = "flex";
+          emailError.style.flexWrap = "nowrap";
+          emailError.style.paddingRight = "35px";
+          return false;
+        } else {
+          emailInput.classList.remove("invalid");
+          emailError.textContent = "";
+          return true;
+        }
+      }
+      // Agregar un evento para validar el correo electrónico cuando el usuario cambie el valor del input
+      emailInput.addEventListener("input", validarEmail1);
+
+      // Agregar un evento para validar el correo electrónico cuando el usuario envíe el formulario
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          if (!validarEmail1()) {
+            event.preventDefault();
+          }
+        });
+
+      const confirmarEmail = document.getElementById("confirmar-email");
+      const error = document.createElement("p");
+
+      function validarEmail2() {
+        if (email.value !== confirmarEmail.value) {
+          error.textContent = "Error: los correos electrónicos no coinciden.";
+          error.style.color = "red";
+          confirmarEmail.parentNode.appendChild(error);
+          return false;
+        } else if (error.parentNode === confirmarEmail.parentNode) {
+          confirmarEmail.parentNode.removeChild(error);
+        }
+        return true;
+      }
+
+      email.addEventListener("input", validarEmail2);
+      confirmarEmail.addEventListener("input", validarEmail2);
+    </script>
+  </body>
+</html>
