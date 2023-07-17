@@ -4,14 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="./public/faviconn.ico" />
+    <link rel="icon" type="image/x-icon" href="./public/faviconn.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
-      rel="stylesheet"
-    />
+    
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -29,19 +24,6 @@
         src: url('ruta/del/archivo/fuente.otf') format('opentype'); */
       }
 
-      @font-face {
-        font-family: "millerLight";
-        src: url("./fonts/MillerDisplayLancome-Light.otf") format("opentype");
-        /* Si la fuente es un archivo .otf, usa el siguiente formato en lugar del formato truetype:
-        src: url('ruta/del/archivo/fuente.otf') format('opentype'); */
-      }
-
-      @font-face {
-        font-family: "helvetica";
-        src: url("./fonts/helveticaNeuerRoman.otf") format("opentype");
-        /* Si la fuente es un archivo .otf, usa el siguiente formato en lugar del formato truetype:
-        src: url('ruta/del/archivo/fuente.otf') format('opentype'); */
-      }
 
       * {
         box-sizing: border-box;
@@ -87,7 +69,6 @@
         font-size: 12px;
         color: #000000;
         margin-bottom: 30px;
-        font-weight: lighter;
       }
 
       /*FORMULARIO*/
@@ -138,9 +119,7 @@
 
       .label-font ::placeholder {
         color: #999;
-        font-style: italic;
         font-size: 18px;
-        font-weight: lighter;
       }
 
       input:focus + label,
@@ -259,14 +238,9 @@
         transition: all 0.35s;
       }
 
-      .phrase-container {
-        margin-left: 27px;
-        width: 0 auto;
-      }
+     
 
       .phrase-container-pequeno {
-        margin-left: 27px;
-        width: 0 auto;
         margin-bottom: 40px;
       }
 
@@ -283,7 +257,6 @@
       .label-font-phone ::placeholder {
         color: #999;
         font-size: 18px;
-        font-weight: lighter;
       }
 
       .banner-container {
@@ -340,16 +313,13 @@
 
           <!--TITULOS-->
           <div class="container-title">
-            <p style="font-family: 'millerRoman'" class="title">
-              EXPERIMENTA LA SEDUCCIÓN <br />
-              Y EL ENCANTO ÚNICO DE YSL BEAUTY
+            <p  class="title">
+              EXPERIMENTA LA SEDUCCIÓN Y EL ENCANTO DE YSL BEAUTY
             </p>
-            <p style="font-family: 'millerLight'" class="title-medium-commet">
-              REGÍSTRATE PARA RECIBIR BENEFICIOS EXCLUSIVOS, PROMOCIONES
-              <br />ESPECIALES Y CONTENIDO INSPIRADOR PARA EXPRESAR TU
-              PERSONALIDAD AUDAZ.
+            <p class="title-medium-commet">
+              REGÍSTRATE PARA RECIBIR BENEFICIOS, PROMOCIONES Y CONTENIDO EXCLUSIVOS E INSPIRADOR PARA EXPRESAR TU PERSONALIDAD AUDAZ.
             </p>
-            <p style="font-family: 'helvetica'" class="title-small-comment">
+            <p class="title-small-comment">
               Los campos marcados con * son obligatorios
             </p>
           </div>
@@ -365,7 +335,7 @@
                     id="nombre"
                     name="first-name"
                     placeholder="NOMBRE*"
-                    class="label-font fst-italic input_name"
+                    class="input_name"
                     required
                   />
                 </div>
@@ -378,7 +348,7 @@
                     id="apellido"
                     name="last-name"
                     placeholder="APELLIDO*"
-                    class="label-font fst-italic input_name"
+                    class="input_name"
                     required
                   />
                 </div>
@@ -393,7 +363,7 @@
                     id="email"
                     name="email"
                     placeholder="CORREO ELECTRÓNICO*"
-                    class="label-font fst-italic input_name"
+                    class="input_name"
                     required
                   />
                 </div>
@@ -651,12 +621,7 @@
                     href="https://www.loreal.com/en/central-america/pages/group/privacy-policy-panama/"
                     >políticas de privacidad</a
                   >
-                  y
-                  <a
-                    class="text-privacidad"
-                    href="https://www.laroche-posay.co/event/terminos-y-condiciones"
-                    >términos y condiciones</a
-                  >
+                
                 </p>
               </div>
 
@@ -677,7 +642,7 @@
                 </p>
               </div>
 
-              <p class="container phrase-container">
+              <p class="container mt-4">
                 YSL Beauty y otras empresas de confianza usarán tus datos
                 personales para administrar tu consulta o para responder tus
                 preguntas, y para fines analíticos y de investigación de
