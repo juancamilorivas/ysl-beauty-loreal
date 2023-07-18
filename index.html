@@ -24,12 +24,27 @@
         src: url('ruta/del/archivo/fuente.otf') format('opentype'); */
       }
 
+      @font-face {
+        font-family: "avantGardeGothicBook";
+        src: url("./fonts/avantGardeGothicBook.ttf") format("opentype");
+        /* Si la fuente es un archivo .otf, usa el siguiente formato en lugar del formato truetype:
+        src: url('ruta/del/archivo/fuente.otf') format('opentype'); */
+      }
+
+      @font-face {
+        font-family: "avantGardeGothicLTBold";
+        src: url("./fonts/avantGardeGothicLTBold.otf") format("opentype");
+        /* Si la fuente es un archivo .otf, usa el siguiente formato en lugar del formato truetype:
+        src: url('ruta/del/archivo/fuente.otf') format('opentype'); */
+      }
+
+
 
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        font-family: "helvetica";
+        font-family: "avantGardeGothicBook";
       }
 
       .main-container {
@@ -57,18 +72,24 @@
       .title {
         font-size: 25px;
         margin-bottom: 16px;
+        font-family: "avantGardeGothicLTBold";
+
       }
 
       .title-medium-commet {
+        max-width: 1024px;
         font-size: 16px;
         color: #000000;
         margin-bottom: 10px;
+        font-family: "avantGardeGothicLTBold";
       }
 
       .title-small-comment {
         font-size: 12px;
         color: #000000;
         margin-bottom: 30px;
+        font-family: "avantGardeGothicLTBold";
+
       }
 
       /*FORMULARIO*/
@@ -136,6 +157,7 @@
         font-size: 14px;
         width: 220px;
         margin-bottom: 18px;
+
       }
 
       .input_phone {
@@ -643,7 +665,7 @@
               </div>
 
               <p class="container mt-4">
-                YSL Beauty y otras empresas de confianza usarán tus datos
+                YSL BEAUTY y otras empresas de confianza usarán tus datos
                 personales para administrar tu consulta o para responder tus
                 preguntas, y para fines analíticos y de investigación de
                 mercado. Para más información sobre el uso que le damos a tus
@@ -651,7 +673,7 @@
               </p>
 
               <p class="container phrase-container-pequeno">
-                YSL Beauty forma parte de L’Oréal Cosmética Activa
+                YSL BEAUTY forma parte de L’Oréal Cosmética Activa
               </p>
             </div>
 
